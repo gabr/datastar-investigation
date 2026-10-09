@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<script type="module" src="/datastar.js"></script>
+
+<div>
+  <button data-on:click="alert(`I'm sorry, Dave. I'm araid I can't do that.`)">
+    Open the pad bay doors, HAL. (alert)
+  </button>
+</div>
+
+<div>
+  <button data-on:click="@get('/getting-started.php?action=open-pad-bay-doors')">
+    Open the pad bay doors, HAL. (get)
+  </button>
+  <div id="hal"></div>
+</div>
+
+<div>
+  <input data-bind="query" />
+  <button data-on:click="alert($query)">
+    send: "<span data-computed:lower-query="$query.toLowerCase()" data-text="$lowerQuery"></span>"
+  </button>
+</div>
+
+<div data-signals:response="'...'">
+  <button data-on:click="$response = 'Roger, roger!'">
+    Open the door!
+  </button>
+  <span data-text="$response"></span>
+</div>
+
+<div
+  data-signals="{response: '', answer: 'bread'}"
+  data-computed:correct="$response.toLowerCase() == $answer"
+>
+  <div id="question">What do you put in a toaster?</div>
+  <button data-on:click="$response = prompt('Answer:') ?? ''">BUZZ</button>
+  <div data-show="$response != ''">
+    You answer "<span data-text="$response"></span>.
+    <span data-show="$correct">This is correct</span>
+    <span data-show="!$correct">
+      The correct answer is "<span data-text="$answer"></span>"
+    </span>
+  </div>
+</div>
+
+<div data-signals:hal="'...'">
+  <button data-on:click="@get('/getting-started.php?json=hal')">
+    HAL, do you read me?
+  </button>
+  <div data-text="$hal"></div>
+</div>
+
