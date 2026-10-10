@@ -148,8 +148,9 @@
     });
   }
 
-  window["input-query"].addEventListener("input", () => {
-    window["input-query-span"].innerText = window["input-query"].value.toLowerCase();
+  window["input-query-span"].innerText = window["input-query"].value.toLowerCase();
+  window["input-query"].addEventListener("input", (e) => {
+    window["input-query-span"].innerText = e.target.value.toLowerCase();
   });
 
   window["offset-height-span"].innerText = window["offset-height-span"].parentElement.offsetHeight;

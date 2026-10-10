@@ -54,7 +54,8 @@ https://data-star.dev/guide/getting_started
     But I never had issues with Java Script.  Simple frontend code is
     actually easier to understand then complex interactions that emerge
     from the data attributes soup.  BUT I have to give it to them that
-    I would have to write more code to achieve the same results.
+    I would have to write more code to achieve the same results - maybe
+    - I'll verify that later.
 
     Also their solution isn't perfect.  It's very well optimized for
     most common use cases but they do have specific workarounds and ad
@@ -72,4 +73,31 @@ https://data-star.dev/guide/getting_started
     So I have some reading to do now but in general what I will do now
     is that I will try to reimplement all those small code snippets from
     the guide using Java Script to see how much work will that be.
+
+    ---
+
+    So the View Transition API is there, it promises a lot but the
+    effect I saw in browsers was poor or straight up bad.  Firefox does
+    not implement transitions between pages - only single page apps and
+    even that looks terrible.  Chrome claims to implement it all but it
+    sometimes works, sometimes doesn't and looks equally terrible.  IMO
+    it's not worth bothering with those transitions and just make the
+    website fast.
+
+    ---
+
+    I reimplemented everything using just Java Script.  I'm really
+    surprised how little code was needed to achieve exactly the same
+    results.  Only 14 lines of Java Script and I could simplify one of
+    the backend endpoints in half.  I also experimented with default
+    HTML attributed and tried to implement features with just them.
+    Looks ugly and I prefer doing that in script but it's doable.
+
+    I was expecting that much more code will be needed but it turned
+    out to not be true.  This concludes my research and I don't see
+    reasons to use the data-star framework.  It's a bag of useful ideas
+    and I like that it propagates lean and performant websites which
+    have a single source of truth on the backend.  But the framework
+    itself is cumbersome in comparison to regular Vanilla Java Script
+    which can be easily debugged.
 

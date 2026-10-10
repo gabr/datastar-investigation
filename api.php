@@ -1,4 +1,6 @@
 <?php
+  // start the local server with a command: php -S localhost:8001
+
   if (isset($_GET["action"])) {
     if ($_GET["action"] === "reset") {
       echo '<div id="hal"></div>';
