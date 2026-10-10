@@ -7,7 +7,7 @@
       ?>
         <div id="hal">
           I'm sorry, Dave. I'm araid I can't do that
-          <button data-on:click="@get('/getting-started.php?action=reset')">
+          <button data-on:click="@get('/api.php?action=reset')">
             reset
           </button>
         </div>

@@ -8,7 +8,7 @@
 </div>
 
 <div>
-  <button data-on:click="@get('/getting-started.php?action=open-pad-bay-doors')">
+  <button data-on:click="@get('/api.php?action=open-pad-bay-doors')">
     Open the pad bay doors, HAL. (get)
   </button>
   <div id="hal"></div>
@@ -44,7 +44,7 @@
 </div>
 
 <div data-signals:hal="'...'">
-  <button data-on:click="@get('/getting-started.php?json=hal')">
+  <button data-on:click="@get('/api.php?json=hal')">
     HAL, do you read me?
   </button>
   <div data-text="$hal"></div>
@@ -56,7 +56,7 @@
 
 <div>
   <input data-bind:js.alert.message />
-  <button data-on:click="@get('/getting-started.php?js-alert=' + $js.alert.message)">
+  <button data-on:click="@get('/api.php?js-alert=' + $js.alert.message)">
     Send alert
   </button>
 </div>
