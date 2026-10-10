@@ -126,6 +126,18 @@
   Offset height: <span id="offset-height-span"></span>
 </div>
 
+<div>
+  <input id="input-js-alert-message" />
+  <button
+    onclick="
+      fetch('/api.php?js-alert=' + window['input-js-alert-message'].value)
+      .then((res) => res.text())
+      .then((txt) => eval(txt));
+    ">
+    Send alert
+  </button>
+</div>
+
 <script>
   function action(name) {
     fetch(`/api.php?action-js=${name}`)
