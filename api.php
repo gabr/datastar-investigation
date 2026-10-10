@@ -14,6 +14,14 @@
       <?php
     }
   }
+  else if (isset($_GET["action-js"])) {
+    if ($_GET["action-js"] === "reset") {
+      echo "";
+    }
+    if ($_GET["action-js"] === "open-pad-bay-doors") {
+      echo "I'm sorry, Dave. I'm araid I can't do that";
+    }
+  }
   else if (isset($_GET["json"])) {
     if ($_GET["json"] === "hal") {
       header('Content-Type: application/json; charset=utf-8');
@@ -27,5 +35,3 @@
     header('Content-Type: text/javascript; charset=utf-8');
     echo "alert('" . $msg . "')";
   }
-?>
-

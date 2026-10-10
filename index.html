@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <script type="module" src="/datastar.js"></script>
 
+<h2>DATASTAR</h2>
+
 <div>
   <button data-on:click="alert(`I'm sorry, Dave. I'm araid I can't do that.`)">
     Open the pad bay doors, HAL. (alert)
@@ -60,3 +62,83 @@
     Send alert
   </button>
 </div>
+
+<h2>Vanilla JS</h2>
+
+<div>
+  <button onclick="alert(`I'm sorry, Dave. I'm araid I can't do that.`)">
+    Open the pad bay doors, HAL. (alert)
+  </button>
+</div>
+
+<div>
+  <button onclick="action('open-pad-bay-doors')">
+    Open the pad bay doors, HAL. (get)
+  </button>
+  <div>
+    <span   id="hal-js"></span>
+    <button id="hal-js-reset" onclick="action('reset')" style=display:none>reset</button>
+  </div>
+</div>
+
+<div>
+  <input id="input-query" />
+  <button onclick="alert(window['input-query'].value)">
+    send: "<span id="input-query-span"></span>"
+  </button>
+</div>
+
+<div >
+  <button onclick="window.response.innerText = 'Roger, roger!'">
+    Open the door!
+  </button>
+  <span id="response">...</span>
+</div>
+
+<div>
+  <div>What do you put in a toaster?</div>
+  <button
+    onclick='
+      const answer = "bread";
+      const res = prompt("Answer:") ?? "";
+      window["quiz-answer"].innerHTML = res.toLowerCase() == answer
+       ? "This is correct"
+       : "The correct answer is \"" + answer + "\"";
+    '
+  >BUZZ</button>
+  <div id="quiz-answer"></div>
+</div>
+
+<div>
+  <button
+    onclick='
+      fetch("api.php?json=hal")
+      .then((res) => res.json())
+      .then((json) => window["json-hal-res"].innerText = json.hal)
+    '
+  >
+    HAL, do you read me?
+  </button>
+  <div id="json-hal-res">...</div>
+</div>
+
+<div>
+  Offset height: <span id="offset-height-span"></span>
+</div>
+
+<script>
+  function action(name) {
+    fetch(`/api.php?action-js=${name}`)
+    .then((res) => res.text())
+    .then((txt) => {
+      window["hal-js"].innerText = txt;
+      window["hal-js-reset"].style.display = txt.length ? "" : "none";
+    });
+  }
+
+  window["input-query"].addEventListener("input", () => {
+    window["input-query-span"].innerText = window["input-query"].value.toLowerCase();
+  });
+
+  window["offset-height-span"].innerText = window["offset-height-span"].parentElement.offsetHeight;
+</script>
