@@ -14,13 +14,18 @@
       <?php
     }
   }
-  if (isset($_GET["json"])) {
+  else if (isset($_GET["json"])) {
     if ($_GET["json"] === "hal") {
       header('Content-Type: application/json; charset=utf-8');
       echo json_encode(array(
         "hal" => "Affirmative, Dave. I read you."
       ));
     }
+  }
+  else if (isset($_GET["js-alert"])) {
+    $msg = $_GET["js-alert"];
+    header('Content-Type: text/javascript; charset=utf-8');
+    echo "alert('" . $msg . "')";
   }
 ?>
 

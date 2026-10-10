@@ -50,3 +50,13 @@
   <div data-text="$hal"></div>
 </div>
 
+<div>
+  Offset height: <span data-text="el.parentElement.offsetHeight"></span>
+</div>
+
+<div>
+  <input data-bind:js.alert.message />
+  <button data-on:click="@get('/getting-started.php?js-alert=' + $js.alert.message)">
+    Send alert
+  </button>
+</div>
